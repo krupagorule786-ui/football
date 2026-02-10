@@ -1,0 +1,18 @@
+require("dotenv").config()
+
+const express =require("express")
+const cors = require("cors")
+const bodyParser = require("body-parser")
+const adminrouter=require('./routes/admin.routes')
+const catrouter=require('./routes/cat.routes')
+const userrouter=require('./routes/user.routes')
+const cnrouter=require('./routes/country.routes')
+const app=express()
+app.use(cors())
+app.use(bodyParser.json())
+app.use('/api/admin',adminrouter)
+app.use('/api/cat',catrouter)
+app.use('/api/user',userrouter)
+app.use('/api/country',cnrouter)
+PORT =process.env.PORT||5000
+app.listen(PORT,()=>console.log(`server is running on ${PORT}`))
