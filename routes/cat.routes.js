@@ -1,8 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const catcontroller=require("../controller/cat.controller");
-//define endpoint
-router.get('/',catcontroller.getAll)
-router.get('/:id',catcontroller.getcatById)
-router.post('/',catcontroller.addcat)
-module.exports=router
+const express = require("express")
+const router = express.Router()
+const categoryController = require("../controller/cat.controller")
+
+router.get("/", categoryController.getAllCategory)
+router.get("/:catid", categoryController.getCategoryById)
+router.post("/", categoryController.addCategory)
+router.delete("/:catid", categoryController.deleteCategory)
+
+module.exports = router
